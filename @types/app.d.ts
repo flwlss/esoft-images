@@ -2,7 +2,7 @@ interface IPhotoResponse {
   limit: number;
   message: string;
   offset: number;
-  photos: Photo[];
+  photos: IPhoto[];
   success: boolean;
 }
 
