@@ -1,19 +1,17 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { SafeAreaView, Text } from 'react-native';
+import store from './src/store';
 
 
 const App = () => {
 
+  useEffect(() => {
+    store.commonStore.getPhotos()
+  }, [])
+
   return (
     <SafeAreaView>
-      <Text>1234</Text>
+      <Text>App</Text>
     </SafeAreaView>
   );
 }
