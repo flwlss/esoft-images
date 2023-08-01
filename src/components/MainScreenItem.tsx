@@ -12,7 +12,7 @@ const FullScreenImage = (props: IFullScreenImageProps) => {
   const [modalVisible, setModalVisible] = useState(false);
 
   return (
-    <View>
+    <View style={styles.container}>
       <TouchableOpacity onPress={() => setModalVisible(true)}>
         <Image source={{ uri: props.url }} style={styles.image} />
       </TouchableOpacity>
@@ -29,6 +29,9 @@ const FullScreenImage = (props: IFullScreenImageProps) => {
 };
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1
+  },
   image: {
     width: '100%',
     height: 200,
@@ -41,7 +44,9 @@ const styles = StyleSheet.create({
   close: {
     width: 50,
     height: 50,
-    backgroundColor: 'red',
+    borderWidth: 1,
+    borderColor: '#fff',
+    borderRadius: 50,
     position: 'absolute',
     top: 20,
     left: 20
