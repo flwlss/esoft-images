@@ -1,17 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import { SafeAreaView, Text } from 'react-native';
-import store from './src/store';
-
+import React from 'react';
+import { SafeAreaView } from 'react-native';
+import MainScreen from './src/screens/MainScreen';
 
 const App = () => {
 
-  useEffect(() => {
-    store.commonStore.getPhotos()
-  }, [])
-
   return (
     <SafeAreaView>
-      <Text>App</Text>
+      <MainScreen />
     </SafeAreaView>
   );
 }

@@ -13,10 +13,6 @@ class ObservableCommonStore {
     makeAutoObservable(this);
   }
 
-  // async initCommonData() {
-  //   await this.getPhotos();
-  // }
-
   async getPhotos() {
     try {
       const data = await getPhotosRequest();
@@ -30,7 +26,6 @@ class ObservableCommonStore {
       console.log(e);
     }
   }
-
 }
 
 export default ObservableCommonStore;
