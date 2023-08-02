@@ -4,12 +4,14 @@ import { View, TextInput, StyleSheet } from "react-native";
 interface ICustomInputProps {
   onChangeText: (search: string) => void;
   placeholder: string;
+  password?: boolean;
 }
 
 const CustomInput = (props: ICustomInputProps) => {
   return (
     <View style={styles.inputContainer}>
       <TextInput
+        secureTextEntry={props.password && true}
         style={styles.input}
         placeholder={props.placeholder}
         onChangeText={props.onChangeText}

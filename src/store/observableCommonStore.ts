@@ -26,6 +26,12 @@ class ObservableCommonStore {
       console.log(e);
     }
   }
+
+  async signIn(login: string, password: string) {
+    if (login === '12345' && password === '12345') {
+      return true
+    }
+  }
 }
 
 export default ObservableCommonStore;
