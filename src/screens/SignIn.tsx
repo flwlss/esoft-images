@@ -34,10 +34,8 @@ const SignIn = () => {
         }} />
       <CustomButton
         action={async () => {
-          const signIn = await store.commonStore.signIn(login, password)
-          if (signIn) {
-            navigation.navigate(Routes.MAIN_SCREEN)
-          } else {
+          await store.commonStore.signIn(login, password)
+          if (!store.commonStore.isUserAuth) {
             Alert.alert('Неверный логин или пароль!')
           }
         }}

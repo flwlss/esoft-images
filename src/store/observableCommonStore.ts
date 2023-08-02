@@ -7,6 +7,7 @@ import { getPhotosRequest } from './requests/commonStoreRequest';
 class ObservableCommonStore {
 
   photos: IPhotoResponse | null = null;
+  isUserAuth: boolean = false;
 
   constructor() {
     console.log('ObservableCommonStore constructor');
@@ -29,7 +30,7 @@ class ObservableCommonStore {
 
   async signIn(login: string, password: string) {
     if (login === '12345' && password === '12345') {
-      return true
+      this.isUserAuth = true
     }
   }
 }
