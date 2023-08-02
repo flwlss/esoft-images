@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { FlatList, StyleSheet, Text, View } from "react-native";
+import { FlatList, ListRenderItemInfo, StyleSheet, Text, View } from "react-native";
 import store from "../store";
 import MainScreenItem from "../components/MainScreenItem";
 import CustomInput from "../components/CustomInput";
@@ -43,12 +43,12 @@ const MainScreen = () => {
         key={secondColumnMode ? 2 : 1}
         keyExtractor={(item) => item.id.toString()}
         data={filterList()}
-        renderItem={({ item }: any) =>
+        renderItem={({ item }: ListRenderItemInfo<IPhoto>) =>
           <MainScreenItem
             key={item.id}
+            id={item.id}
             url={item.url}
-            description={item.description}
-            title={item.title} />
+          />
         }
       />
     </View>

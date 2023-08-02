@@ -1,29 +1,33 @@
-import React, { useState } from 'react';
-import { View, Image, TouchableOpacity, Modal, StyleSheet, Text } from 'react-native';
+import React from 'react';
+import { View, Image, TouchableOpacity, StyleSheet } from 'react-native';
+import Routes from '../navigation/Routes';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { useNavigation } from '@react-navigation/native';
 
 interface IFullScreenImageProps {
   url: string;
-  title: string;
-  description: string;
+  id: number;
 }
+
+type RootStackParamList = {
+  [Routes.IMAGE_INFO]: {
+    photoId: number;
+  };
+};
+
+type Props = StackNavigationProp<RootStackParamList>;
 
 const FullScreenImage = (props: IFullScreenImageProps) => {
 
-  const [modalVisible, setModalVisible] = useState(false);
+  const navigation = useNavigation<Props>();
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity onPress={() => setModalVisible(true)}>
+      <TouchableOpacity onPress={() => {
+        navigation.navigate(Routes.IMAGE_INFO, { photoId: props.id })
+      }}>
         <Image source={{ uri: props.url }} style={styles.image} />
       </TouchableOpacity>
-      <Modal visible={modalVisible} transparent={true}>
-        <View style={styles.modalContainer}>
-          <TouchableOpacity onPress={() => setModalVisible(false)} style={styles.close} />
-          <Text style={styles.title}>{props.title}</Text>
-          <Image source={{ uri: props.url }} style={styles.fullScreenImage} />
-          <Text style={styles.description}>{props.description}</Text>
-        </View>
-      </Modal>
     </View>
   );
 };
@@ -36,37 +40,6 @@ const styles = StyleSheet.create({
     width: '100%',
     height: 200,
   },
-  modalContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    backgroundColor: 'rgba(0,0,0,0.9)',
-  },
-  close: {
-    width: 50,
-    height: 50,
-    borderWidth: 1,
-    borderColor: '#fff',
-    borderRadius: 50,
-    position: 'absolute',
-    top: 20,
-    left: 20
-  },
-  title: {
-    color: '#fff',
-    marginBottom: 15,
-    textAlign: 'center',
-    paddingHorizontal: 20
-  },
-  fullScreenImage: {
-    width: '100%',
-    height: 200,
-  },
-  description: {
-    color: '#fff',
-    marginTop: 15,
-    textAlign: 'center',
-    paddingHorizontal: 20
-  }
 });
 
 export default FullScreenImage;

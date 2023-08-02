@@ -7,9 +7,14 @@ import { StackNavigationProp } from "@react-navigation/stack";
 import Routes from "../navigation/Routes";
 import store from "../store";
 
-const SignIn = () => {
+type RootStackParamList = {
+  [Routes.MAIN_SCREEN]: undefined;
+};
 
-  const navigation = useNavigation<StackNavigationProp<{ [Routes.MAIN_SCREEN]: undefined }>>();
+type Props = StackNavigationProp<RootStackParamList>;
+
+const SignIn = () => {
+  const navigation = useNavigation<Props>();
   const [login, setLogin] = useState('')
   const [password, setPassword] = useState('')
 
