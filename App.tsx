@@ -1,13 +1,17 @@
 import React from 'react';
-import { SafeAreaView } from 'react-native';
-import MainScreen from './src/screens/MainScreen';
+import { NavigationContainer } from '@react-navigation/native';
+import 'react-native-gesture-handler';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import Navigation from './src/navigation/Navigation';
 
 const App = () => {
 
   return (
-    <SafeAreaView>
-      <MainScreen />
-    </SafeAreaView>
+    <SafeAreaProvider>
+      <NavigationContainer>
+        <Navigation />
+      </NavigationContainer>
+    </SafeAreaProvider>
   );
 }
 

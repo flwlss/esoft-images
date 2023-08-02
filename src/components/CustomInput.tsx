@@ -3,6 +3,7 @@ import { View, TextInput, StyleSheet } from "react-native";
 
 interface ICustomInputProps {
   onChangeText: (search: string) => void;
+  placeholder: string;
 }
 
 const CustomInput = (props: ICustomInputProps) => {
@@ -10,7 +11,7 @@ const CustomInput = (props: ICustomInputProps) => {
     <View style={styles.inputContainer}>
       <TextInput
         style={styles.input}
-        placeholder="Введите заголовок"
+        placeholder={props.placeholder}
         onChangeText={props.onChangeText}
       />
     </View>

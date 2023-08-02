@@ -28,10 +28,16 @@ const MainScreen = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>My Photos</Text>
-      <CustomInput onChangeText={(search) => { setSearch(search) }} />
+      <CustomInput
+        placeholder="Введите заголовок"
+        onChangeText={(search) => {
+          setSearch(search)
+        }} />
       <CustomButton
         title="Сменить режим"
-        action={() => { setSecondColumnMode(!secondColumnMode) }} />
+        action={() => {
+          setSecondColumnMode(!secondColumnMode)
+        }} />
       <FlatList
         numColumns={secondColumnMode ? 2 : 1}
         key={secondColumnMode ? 2 : 1}
