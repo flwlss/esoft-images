@@ -2,10 +2,9 @@ import * as React from 'react';
 import store from '../store';
 import RootStack from './RootStack';
 import NotAuthorizedStack from './NotAuthorizedStack';
-import { observer } from 'mobx-react-lite';
+import {observer} from 'mobx-react-lite';
 
 const Navigation = () => {
-
   const navigationWrapper = React.useMemo(() => {
     if (store.commonStore.isUserAuth) {
       return <RootStack />;
@@ -14,11 +13,7 @@ const Navigation = () => {
     }
   }, [store.commonStore.isUserAuth]);
 
-  return (
-    <>
-      {navigationWrapper}
-    </>
-  );
-}
+  return <>{navigationWrapper}</>;
+};
 
-export default observer(Navigation)
+export default observer(Navigation);

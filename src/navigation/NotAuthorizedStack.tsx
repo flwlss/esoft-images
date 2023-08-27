@@ -1,4 +1,4 @@
-import { createStackNavigator } from '@react-navigation/stack';
+import {createStackNavigator} from '@react-navigation/stack';
 import * as React from 'react';
 import Routes from './Routes';
 import SignIn from '../screens/SignIn';
@@ -12,12 +12,8 @@ export default () => {
         screenOptions={{
           headerShown: false,
         }}
-        initialRouteName={Routes.SIGN_IN}
-      >
-        <NotAuthorizedStack.Screen
-          name={Routes.SIGN_IN}
-          component={SignIn}
-        />
+        initialRouteName={Routes.SIGN_IN}>
+        <NotAuthorizedStack.Screen name={Routes.SIGN_IN} component={SignIn} />
       </NotAuthorizedStack.Navigator>
     </>
   );

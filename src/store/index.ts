@@ -1,4 +1,4 @@
-import ObservableCommonStore from "./observableCommonStore";
+import ObservableCommonStore from './observableCommonStore';
 
 export interface IRootStore {
   commonStore: ObservableCommonStore;
